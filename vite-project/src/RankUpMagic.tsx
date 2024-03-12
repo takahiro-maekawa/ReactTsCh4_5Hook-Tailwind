@@ -1,7 +1,9 @@
-export default function RankUpMagic() {
+export default function RankUpMagic({}) {
     return(
         <>
-        <span>Hello World</span>
+        <div className="text-3xl font-bold underline">
+            <span>Hello World</span>
+        </div>
         </>
     )
 }
