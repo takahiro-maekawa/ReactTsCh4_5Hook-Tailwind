@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import RankUpMagic from './RankUpMagic'
+import './css/App.css'
+import RankUpMagic from './component/RankUpMagic'
 
 function App() {
 
