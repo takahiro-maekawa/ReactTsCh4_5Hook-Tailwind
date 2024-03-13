@@ -2,7 +2,7 @@ import {CardValueAction, Attribute} from '../type/types'
 import { ChangeEvent } from 'react';
 
 interface AttrFormProps {
-    attribute: string;
+    attribute: Attribute;
     dispatchCardValue: React.Dispatch<CardValueAction>;
 }
 

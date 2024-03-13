@@ -1,12 +1,11 @@
-import {CardValueAction, Attribute} from '../type/types'
+import {CardValueAction} from '../type/types'
 import { MouseEvent } from 'react';
 
 interface RankFormProps {
-    rank: number;
     dispatchCardValue: React.Dispatch<CardValueAction>;
 }
 
-export default function RankForm({rank, dispatchCardValue}:RankFormProps){
+export default function RankForm({dispatchCardValue}:RankFormProps){
     const clickDecrement = (e: MouseEvent<HTMLButtonElement>) => {
         dispatchCardValue({type:'decrement'})
     };
