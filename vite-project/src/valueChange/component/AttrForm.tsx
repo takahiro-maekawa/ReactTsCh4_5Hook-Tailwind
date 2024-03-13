@@ -4,7 +4,7 @@ import { ChangeEvent } from 'react';
 interface AttrFormProps {
     attribute: string;
     dispatchCardValue: React.Dispatch<CardValueAction>;
-   }
+}
 
    
 export default function AttrForm({attribute, dispatchCardValue}: AttrFormProps){
