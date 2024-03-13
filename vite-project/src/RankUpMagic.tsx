@@ -1,4 +1,4 @@
-import { Attribute } from './valueChange/type/types'
+import { Attribute } from './common/entity/Attribute'
 import { useReducer } from "react";
 import AttrForm from './valueChange/component/AttrForm'
 import RankForm from './valueChange/component/RankForm'

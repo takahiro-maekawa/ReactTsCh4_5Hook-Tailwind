@@ -1,5 +1,6 @@
-import {CardValueAction, Attribute} from '../type/types'
+import {Attribute} from '../../common/entity/Attribute'
 import { ChangeEvent } from 'react';
+import {CardValueAction} from '../reducer/CardCalueReducer'
 
 interface AttrFormProps {
     attribute: Attribute;

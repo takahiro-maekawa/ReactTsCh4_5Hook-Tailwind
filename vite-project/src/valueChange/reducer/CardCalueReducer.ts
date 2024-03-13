@@ -1,4 +1,27 @@
-import {Attribute, CardValueState, CardValueAction} from '../type/types'
+import {Attribute} from '../../common/entity/Attribute'
+
+export type CardValueState = {
+    attribute: Attribute;
+    rank: number;
+    loading: boolean;
+  };
+
+export type CardValueAction = 
+    |
+    {
+        type: 'initalize';  
+    }
+    |{
+        type: 'changeAttr';
+        attribute: Attribute;
+    }
+    |{
+        type: 'increment';
+    }
+    |{
+        type: 'decrement';
+    };
+
 export function cardValueReducer(state: CardValueState, action: CardValueAction): CardValueState {
     switch (action.type){
         case 'initalize': 
