@@ -1,7 +1,16 @@
-export default function CardView(){
+
+interface CardViewProps {
+    name: string;
+    imageUrl: string;
+}
+
+export default function CardView({name, imageUrl}: CardViewProps){
     return(
         <>
-        <span>CARD IMAGE</span>
+        {/** 
+         <span>{imageUrl}</span>
+        **/}
+        <img src={imageUrl} />
         </>
     )
 }

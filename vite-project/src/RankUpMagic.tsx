@@ -21,7 +21,7 @@ export default function RankUpMagic({}) {
     
     // カードの表示用Stateとdispatchを定義
     const [{name, imageUrl}, dispatchCardView] = useReducer(cardViewReducer,
-        {attribute: Attribute.Dark, name:'sample', imageUrl:'test.png'}
+        {attribute: Attribute.Dark, name:'sample', imageUrl:'https://images.ygoprodeck.com/images/cards/16195942.jpg'}
     );
     
     // カードの検索用State
@@ -36,10 +36,7 @@ export default function RankUpMagic({}) {
         <div className="text-3xl font-bold underline">
             <span>{attribute} {rank} {loading ? "true": "false"}</span><br/>
         </div>
-        <div className="text-3xl font-bold underline">
-            <span>{name} {imageUrl}</span><br/>
-        </div>
-        <CardView /><br/>
+        <CardView name={name} imageUrl={imageUrl} /><br/>
         <RankForm dispatchCardValue={dispatchCardValue}/>
         </>
     )

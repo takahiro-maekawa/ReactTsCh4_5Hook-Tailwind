@@ -18,7 +18,7 @@ export default async function infoFetch({attribute, rank, dispatchCardView, disp
     await sleep(2000);
     
     // あとは何かしらの形でCardViewStateを更新すればおk
-    dispatchCardView({type: 'update', newState:{attribute: Attribute.Dark, name:`${rank} of ${attribute} Attr`, imageUrl:`${attribute}.png`}})
+    dispatchCardView({type: 'update', newState:{attribute: Attribute.Dark, name:`${rank} of ${attribute} Attr`, imageUrl:`https://images.ygoprodeck.com/images/cards/64276752.jpg`}})
     
     // Loding状態を解除
     dispatchCardValue({type: "isNotLoading"});
