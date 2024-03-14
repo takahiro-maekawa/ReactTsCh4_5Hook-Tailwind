@@ -30,14 +30,26 @@ export default function RankUpMagic({}) {
         infoFetch({attribute, rank, dispatchCardView, dispatchCardValue});
     }, [attribute, rank])
 
+    // 実質Root要素
     return(
-        <>
-        <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
-        <div className="text-3xl font-bold underline">
-            <span>{attribute} {rank} {loading ? "true": "false"}</span><br/>
-        </div>
-        <CardView name={name} imageUrl={imageUrl} /><br/>
-        <RankForm dispatchCardValue={dispatchCardValue}/>
+        <> {
+            (() => {
+                if(loading){
+                    return (<img style={{ height: '500px' }} src="https://uploads1.yugioh.com/card_images/743/detail/Xyz-effect.jpg?1380294200" />)
+                }else{
+                    return(
+                        <>
+                            <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
+                            <div className="text-3xl font-bold underline">
+                                <span>{attribute} {rank} {loading ? "true": "false"}</span><br/>
+                            </div>
+                            <CardView name={name} imageUrl={imageUrl} loading={loading}/><br/>
+                            <RankForm dispatchCardValue={dispatchCardValue}/>
+                        </>
+                    )
+                }
+            })()
+        }
         </>
     )
 }

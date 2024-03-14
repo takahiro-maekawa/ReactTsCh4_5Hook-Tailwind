@@ -15,7 +15,7 @@ const sleep = (delay: number | undefined) => new Promise(resolve => setTimeout(r
 
 export default async function infoFetch({attribute, rank, dispatchCardView, dispatchCardValue}: infoProps) {
     // 暫定的に値を変更
-    await sleep(2000);
+    await sleep(1000);
     
     // あとは何かしらの形でCardViewStateを更新すればおk
     dispatchCardView({type: 'update', newState:{attribute: Attribute.Dark, name:`${rank} of ${attribute} Attr`, imageUrl:`https://images.ygoprodeck.com/images/cards/64276752.jpg`}})
