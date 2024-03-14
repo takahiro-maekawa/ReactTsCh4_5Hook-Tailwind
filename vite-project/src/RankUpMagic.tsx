@@ -26,14 +26,16 @@ export default function RankUpMagic({}) {
     
     // カードの検索用State
     useEffect(() => {
+        dispatchCardValue({type: 'changeLoad'});
         infoFetch({attribute, rank, dispatchCardView});
+        dispatchCardValue({type: 'changeLoad'});
     }, [attribute, rank])
 
     return(
         <>
         <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
         <div className="text-3xl font-bold underline">
-            <span>{attribute} {rank}</span><br/>
+            <span>{attribute} {rank} {loading ? "true": "false"}</span><br/>
         </div>
         <div className="text-3xl font-bold underline">
             <span>{name} {imageUrl}</span><br/>

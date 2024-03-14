@@ -20,6 +20,9 @@ export type CardValueAction =
     }
     |{
         type: 'decrement';
+    }
+    |{
+        type: 'changeLoad';
     };
 
 export function cardValueReducer(state: CardValueState, action: CardValueAction): CardValueState {
@@ -42,6 +45,9 @@ export function cardValueReducer(state: CardValueState, action: CardValueAction)
                 return state;
             }
             return {...state, rank: state.rank +1}
+        case 'changeLoad':
+        // Loadingを反転させる
+            return {...state, loading: !state.loading}
         default:
             return state;
     }
