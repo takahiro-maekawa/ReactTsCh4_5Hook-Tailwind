@@ -26,9 +26,8 @@ export default function RankUpMagic({}) {
     
     // カードの検索用State
     useEffect(() => {
-        dispatchCardValue({type: 'changeLoad'});
-        infoFetch({attribute, rank, dispatchCardView});
-        dispatchCardValue({type: 'changeLoad'});
+        dispatchCardValue({type: 'isLoading'});
+        infoFetch({attribute, rank, dispatchCardView, dispatchCardValue});
     }, [attribute, rank])
 
     return(

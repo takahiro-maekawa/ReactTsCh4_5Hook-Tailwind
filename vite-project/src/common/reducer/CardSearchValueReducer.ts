@@ -22,7 +22,10 @@ export type CardValueAction =
         type: 'decrement';
     }
     |{
-        type: 'changeLoad';
+        type: 'isNotLoading';
+    }
+    |{
+        type: 'isLoading';
     };
 
 export function cardValueReducer(state: CardValueState, action: CardValueAction): CardValueState {
@@ -45,9 +48,12 @@ export function cardValueReducer(state: CardValueState, action: CardValueAction)
                 return state;
             }
             return {...state, rank: state.rank +1}
-        case 'changeLoad':
-        // Loadingを反転させる
-            return {...state, loading: !state.loading}
+        case 'isNotLoading':
+        // ローディング中ではない
+            return {...state, loading: false}
+        case 'isLoading':
+        // ローディング中である
+            return {...state, loading: true}
         default:
             return state;
     }
