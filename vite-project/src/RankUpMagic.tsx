@@ -5,19 +5,28 @@ import RankForm from './rankUpMagic/valueChange/component/RankForm'
 import {cardValueReducer} from './common/reducer/CardSearchValueReducer'
 import {cardViewReducer} from './common/reducer/CardViewReducer'
 import CardView from './rankUpMagic/cardView/component/CardView'
+import infoFetch from './rankUpMagic/infoFetch/infoFetch';
 
+/**
+ * ランクアップマジックだけでなく、ランクを下げることもできます
+ * @param param0 
+ * @returns 
+ */
 export default function RankUpMagic({}) {
 
+    // カードの検索用Stateとdispatchを定義
     const [{attribute, rank, loading}, dispatchCardValue] = useReducer(cardValueReducer,
-        {attribute: Attribute.Dark, rank:4, loading:true}
+        {attribute: Attribute.Dark, rank:4, loading:false}
     );
-
+    
+    // カードの表示用Stateとdispatchを定義
     const [{name, imageUrl}, dispatchCardView] = useReducer(cardViewReducer,
         {attribute: Attribute.Dark, name:'sample', imageUrl:'test.png'}
     );
     
+    // カードの検索用State
     useEffect(() => {
-        console.log(`属性は${attribute}, ランクは${rank}`);
+        infoFetch({attribute, rank, dispatchCardView});
     }, [attribute, rank])
 
     return(
@@ -25,6 +34,9 @@ export default function RankUpMagic({}) {
         <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
         <div className="text-3xl font-bold underline">
             <span>{attribute} {rank}</span><br/>
+        </div>
+        <div className="text-3xl font-bold underline">
+            <span>{name} {imageUrl}</span><br/>
         </div>
         <CardView /><br/>
         <RankForm dispatchCardValue={dispatchCardValue}/>
