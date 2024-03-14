@@ -1,5 +1,5 @@
 import { Attribute } from './common/entity/Attribute'
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import AttrForm from './valueChange/component/AttrForm'
 import RankForm from './valueChange/component/RankForm'
 import {cardValueReducer} from './valueChange/reducer/CardCalueReducer'
@@ -9,6 +9,10 @@ export default function RankUpMagic({}) {
         {attribute: Attribute.Dark, rank:4, loading:true}
     );
     
+    useEffect(() => {
+        console.log(`属性は${attribute}, ランクは${rank}`);
+    }, [attribute, rank])
+
     return(
         <>
         <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
