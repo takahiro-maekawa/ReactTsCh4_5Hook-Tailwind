@@ -1,4 +1,4 @@
-import {Attribute} from '../../../common/entity/Attribute'
+import {Attribute} from '../entity/Attribute'
 
 export type CardValueState = {
     attribute: Attribute;
