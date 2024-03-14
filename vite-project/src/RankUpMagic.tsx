@@ -1,8 +1,8 @@
 import { Attribute } from './common/entity/Attribute'
 import { useEffect, useReducer } from "react";
-import AttrForm from './valueChange/component/AttrForm'
-import RankForm from './valueChange/component/RankForm'
-import {cardValueReducer} from './valueChange/reducer/CardCalueReducer'
+import AttrForm from './rankUpMagic/valueChange/component/AttrForm'
+import RankForm from './rankUpMagic/valueChange/component/RankForm'
+import {cardValueReducer} from './rankUpMagic/valueChange/reducer/CardCalueReducer'
 
 export default function RankUpMagic({}) {
     const [{attribute, rank, loading}, dispatchCardValue] = useReducer(cardValueReducer,

@@ -1,4 +1,4 @@
-import {Attribute} from '../../common/entity/Attribute'
+import {Attribute} from '../../../common/entity/Attribute'
 import { ChangeEvent } from 'react';
 import {CardValueAction} from '../reducer/CardCalueReducer'
 
