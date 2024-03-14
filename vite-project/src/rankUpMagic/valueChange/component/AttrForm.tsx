@@ -1,12 +1,11 @@
 import {Attribute} from '../../../common/entity/Attribute'
 import { ChangeEvent } from 'react';
-import {CardValueAction} from '../../../common/reducer/CardCalueReducer'
+import {CardValueAction} from '../../../common/reducer/CardSearchValueReducer'
 
 interface AttrFormProps {
     attribute: Attribute;
     dispatchCardValue: React.Dispatch<CardValueAction>;
 }
-
    
 export default function AttrForm({attribute, dispatchCardValue}: AttrFormProps){
     const handleChangeAttr = (e: ChangeEvent<HTMLSelectElement>) => {

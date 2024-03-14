@@ -1,4 +1,4 @@
-import {CardValueAction} from '../../../common/reducer/CardCalueReducer'
+import {CardValueAction} from '../../../common/reducer/CardSearchValueReducer'
 import { MouseEvent } from 'react';
 
 interface RankFormProps {
