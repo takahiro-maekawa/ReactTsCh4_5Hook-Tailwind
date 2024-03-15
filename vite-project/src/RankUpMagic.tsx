@@ -6,6 +6,7 @@ import {cardValueReducer} from './common/reducer/CardSearchValueReducer'
 import {cardViewReducer} from './common/reducer/CardViewReducer'
 import CardView from './rankUpMagic/cardView/component/CardView'
 import infoFetch from './rankUpMagic/infoFetch/infoFetch';
+import reactLogo from './assets/pngegg.png'
 
 /**
  * ランクアップマジックだけでなく、ランクを下げることもできます
@@ -21,7 +22,7 @@ export default function RankUpMagic({}) {
     
     // カードの表示用Stateとdispatchを定義
     const [{name, imageUrl}, dispatchCardView] = useReducer(cardViewReducer,
-        {attribute: Attribute.Dark, name:'sample', imageUrl:'https://images.ygoprodeck.com/images/cards/16195942.jpg'}
+        {attribute: Attribute.Dark, name:'sample', imageUrl:'./assets/pngegg.png'}
     );
     
     // カードの検索用State
@@ -35,7 +36,7 @@ export default function RankUpMagic({}) {
         <> {
             (() => {
                 if(loading){
-                    return (<img style={{ height: '500px' }} src="https://uploads1.yugioh.com/card_images/743/detail/Xyz-effect.jpg?1380294200" />)
+                    return (<img className='logo' style={{ height: '500px' }} src={reactLogo} />)
                 }else{
                     return(
                         <>
