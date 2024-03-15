@@ -45,9 +45,6 @@ export default function RankUpMagic({}) {
                     return(
                         <>
                             <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
-                            <div className="text-3xl font-bold underline">
-                                <span>{attribute} {rank} {loading ? "true": "false"}</span><br/>
-                            </div>
                             <CardView name={name} imageUrl={imageUrl} loading={loading}/><br/>
                             <RankForm dispatchCardValue={dispatchCardValue}/>
                         </>

@@ -2,8 +2,8 @@ import {Attribute} from '../entity/Attribute'
 
 export type CardViewState = {
     attribute: Attribute;
-    name: string;
-    imageUrl: string;
+    name: String;
+    imageUrl: String;
   };
 
   export type CardViewAction = 
@@ -13,7 +13,7 @@ export type CardViewState = {
     }
     |{
         type: 'update';
-        newState: CardViewState;
+        newUrl: String;
     };
 
 export function cardViewReducer(state: CardViewState, action: CardViewAction): CardViewState {
@@ -23,7 +23,7 @@ export function cardViewReducer(state: CardViewState, action: CardViewAction): C
             return {attribute: Attribute.Dark, name:'sample', imageUrl:'sample.png'};
         case 'update': 
         // 値の初期化
-            return {...action.newState};
+            return {...state, imageUrl:action.newUrl};
         default:
             return state;
     }
