@@ -11,7 +11,6 @@ export async function ocgQuery({attribute = null, rank}:QueryInfo) {
     if (attribute === null){
         baseUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?level=${rank}`;
     }
-    
 
     // エクシーズ・ペンデュラムを取得
     const responseXyzPendurum = await fetch(`${baseUrl}&type=XYZ%20Pendulum%20Effect%20Monster`);

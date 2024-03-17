@@ -25,9 +25,11 @@ async function returnUrl({attribute, rank}: CardInfo):Promise<String>{
     // Xyz(ペンデュラム含む)カードを取得
     let data = await ocgQuery({attribute, rank});
 
+    // 属性を指定して検索結果に引っ掛からなかった場合には、ランクだけで再検索
     if (data.length < 1){
         data = await ocgQuery({attribute:null, rank});
     }
+    // 
     const index = Math.floor(Math.random() * (data.length));
 
     return data[index].card_images.at(0).image_url;
