@@ -4,9 +4,9 @@ import AttrForm from './rankUpMagic/valueChange/component/AttrForm'
 import RankForm from './rankUpMagic/valueChange/component/RankForm'
 import {cardValueReducer} from './common/reducer/CardSearchValueReducer'
 import {cardViewReducer} from './common/reducer/CardViewReducer'
-import CardView from './rankUpMagic/cardView/component/CardView'
+import CardViewOld from './rankUpMagic/cardView/component/CardViewOld'
 import infoFetch from './rankUpMagic/infoFetch/infoFetch';
-import Loading from './rankUpMagic/loading/component/Loading'
+import {Suspense, lazy} from 'react'
 
 /**
  * ランクアップマジックだけでなく、ランクを下げることもできます
@@ -33,25 +33,10 @@ export default function RankUpMagic({}) {
 
     // 実質Root要素
     return(
-        <> {
-            (() => {
-                if(loading){
-                    return(
-                        <>
-                            <Loading />
-                        </>
-                        )       
-                }else{
-                    return(
-                        <>
-                            <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
-                            <CardView name={name} imageUrl={imageUrl} loading={loading}/><br/>
-                            <RankForm dispatchCardValue={dispatchCardValue}/>
-                        </>
-                    )
-                }
-            })()
-        }
+        <>                        
+            <AttrForm attribute={attribute} dispatchCardValue={dispatchCardValue}/>
+            <CardViewOld name={name} imageUrl={imageUrl} loading={loading}/><br/>
+            <RankForm dispatchCardValue={dispatchCardValue}/>
         </>
     )
 }
