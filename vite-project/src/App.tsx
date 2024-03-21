@@ -7,7 +7,8 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 const cli = new QueryClient({
   defaultOptions:{
     queries:{
-      suspense: true
+      suspense: true,
+      cacheTime: 0
     }
   }
 })

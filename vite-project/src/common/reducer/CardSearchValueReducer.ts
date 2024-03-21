@@ -3,7 +3,6 @@ import {Attribute} from '../entity/Attribute'
 export type CardValueState = {
     attribute: Attribute;
     rank: number;
-    loading: boolean;
   };
 
 export type CardValueAction = 
@@ -20,19 +19,13 @@ export type CardValueAction =
     }
     |{
         type: 'decrement';
-    }
-    |{
-        type: 'isNotLoading';
-    }
-    |{
-        type: 'isLoading';
     };
 
 export function cardValueReducer(state: CardValueState, action: CardValueAction): CardValueState {
     switch (action.type){
         case 'initalize': 
         // 値の初期化
-            return {attribute: Attribute.Dark, rank:4, loading:true}
+            return {attribute: Attribute.Dark, rank:4}
         case 'changeAttr': 
         // 属性の変更
             return {...state, attribute: action.attribute}
@@ -48,12 +41,6 @@ export function cardValueReducer(state: CardValueState, action: CardValueAction)
                 return state;
             }
             return {...state, rank: state.rank +1}
-        case 'isNotLoading':
-        // ローディング中ではない
-            return {...state, loading: false}
-        case 'isLoading':
-        // ローディング中である
-            return {...state, loading: true}
         default:
             return state;
     }
