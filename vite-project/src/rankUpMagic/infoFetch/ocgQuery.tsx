@@ -5,7 +5,6 @@ export interface QueryInfo{
     rank: number
 }
 
-
 // yugioh APIからデータを取得
 export async function ocgQuery({attribute = null, rank}:QueryInfo) {
     let baseUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?level=${rank}&attribute=${attribute}`;
@@ -14,16 +13,7 @@ export async function ocgQuery({attribute = null, rank}:QueryInfo) {
     }
 
     // エクシーズ・ペンデュラムを取得
-    const pendurumData = await getDataByList(`${baseUrl}&type=XYZ%20Pendulum%20Effect%20Monster`);
-
-    // エクシーズモンスターを取得
-    const xyzData = await getDataByList(`${baseUrl}&type=XYZ%20Monster`);
-    return [...xyzData, ...pendurumData];
-}
-
-/** urlを引数として、データを取得しリストとして返却する関数*/
-async function getDataByList(url: string) {
-    const responseXyzPendurum = await fetch(url);
+    const responseXyzPendurum = await fetch(`${baseUrl}&type=XYZ%20Pendulum%20Effect%20Monster`);
     const pendurumData= await responseXyzPendurum.json().then((data: unknown) => {
         if(containsData(data)){ 
             return data.data; // dataプロパティのみを抽出
@@ -37,8 +27,24 @@ async function getDataByList(url: string) {
         return [];
     }
     )
-
-    return pendurumData;
+    
+    // エクシーズモンスターを取得
+    const responseXyz = await fetch(`${baseUrl}&type=XYZ%20Monster`);
+    const xyzData= await responseXyz.json().then((data: unknown) => {
+        if(containsData(data)){ 
+            return data.data; // dataプロパティのみを抽出
+        }
+        return null;
+    })
+    .then((data: unknown) => {
+        if (isList(data)){ 
+            return data;
+        }
+        return [];
+    }
+    )
+    
+    return [...xyzData, ...pendurumData];
 }
 
 /** 実際にdataを持っていれば、dataを持つオブジェクトとみなす*/

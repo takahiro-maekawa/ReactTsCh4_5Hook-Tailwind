@@ -6,7 +6,7 @@ import {cardValueReducer} from './common/reducer/CardSearchValueReducer'
 import {cardViewReducer} from './common/reducer/CardViewReducer'
 import CardView from './rankUpMagic/cardView/component/CardView'
 import infoFetch from './rankUpMagic/infoFetch/infoFetch';
-import reactLogo from './assets/pngegg_circle.png'
+import Loading from './rankUpMagic/loading/component/Loading'
 
 /**
  * ランクアップマジックだけでなく、ランクを下げることもできます
@@ -36,11 +36,11 @@ export default function RankUpMagic({}) {
         <> {
             (() => {
                 if(loading){
-                    return (
-                    <div className="flex justify-center h-screen">
-                        <img className='logo' style={{ height: '900px' }} src={reactLogo} />
-                    </div>
-                    )
+                    return(
+                        <>
+                            <Loading />
+                        </>
+                        )       
                 }else{
                     return(
                         <>
